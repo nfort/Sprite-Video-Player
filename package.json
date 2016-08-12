@@ -1,0 +1,32 @@
+{
+  "name": "sprite-video-player",
+  "version": "1.0.0",
+  "description": "player usage image sprite for playing video",
+  "main": "index.js",
+  "dependencies": {
+    "es6-promise": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb-es5": "^1.0.9",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2",
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "develop": "webpack -d",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfort/Sprite-Video-Player.git"
+  },
+  "author": "nfort",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nfort/Sprite-Video-Player/issues"
+  },
+  "homepage": "https://github.com/nfort/Sprite-Video-Player#readme"
+}

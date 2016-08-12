@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video player</title>
+    <style>
+        .video-wrapper {
+            border: 1px solid red;
+            box-sizing: border-box;
+            overflow: hidden;
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="video-wrapper"></div>
+<script src="../dist/video-player.min.js"></script>
+<script>
+    var config = {
+        className: 'video-wrapper',
+        src: [
+            'img/video sprite/5s/thumbnails_6_320_0_5_1.jpg',
+            'img/video sprite/5s/thumbnails_6_320_5_5_1.jpg',
+            'img/video sprite/5s/thumbnails_6_320_10_5_1.jpg'
+        ],
+        durationOneSprite: 5,
+        widthFrame: 320,
+        heightFrame: 240,
+        widthSprite: 9600,
+        heightSprite: 240,
+        fps: 6,
+        countRowFrames: 1,
+        countFrames: 90
+    };
+
+    var video = new CreateVideoFromSprites(config);
+    video.init();
+    video.play();
+</script>
+</body>
+</html>
