@@ -3,9 +3,9 @@ function createVideoFromSprites(config) {
 
   this.videoContainer = document.getElementsByClassName(config.className)[0];
   // Контеинер с спрайтом
-  this.videoSpriteContainer = undefined;
-    // Контеинер с изображением
-  this.videoImageContainer = undefined;
+  this.videoSpriteContainer = null;
+  // Контеинер с изображением
+  this.videoImageContainer = null;
   // указатель текущего кадра
   this.currentNumberFrame = 1;
   // кол-во линии в sprite
@@ -15,22 +15,22 @@ function createVideoFromSprites(config) {
   // кол-во кадров в спраите
   this.countFrames = config.countFrames;
   // максимальное кол-во кадров на одной линии
-  this.countMaxFramesOnRow = undefined;
+  this.countMaxFramesOnRow = null;
   // ширина видео контеинера
-  this.widthVideoContainer = undefined;
+  this.widthVideoContainer = null;
   // высота видео контеинера
-  this.heightVideoContainer = undefined;
+  this.heightVideoContainer = null;
   // ширина спрайта
-  this.widthSprite = undefined;
+  this.widthSprite = null;
   // высота спрайта
-  this.heightSprite = undefined;
+  this.heightSprite = null;
   // ширина фрейма
-  this.widthFrame = undefined;
+  this.widthFrame = null;
   // высота фрейма
-  this.heightFrame = undefined;
+  this.heightFrame = null;
   // поддержка translate
-  this.supportedTransform = undefined;
-  // Названия класса в котором храниться видео спрата
+  this.supportedTransform = null;
+  // Названия класса в котором храниться видео спрайта
   this.videoClass = 'video-sprite-' + Date.now();
   // кол-во загруженных изображений
   this.countDownloadImages = 0;
@@ -43,7 +43,7 @@ function createVideoFromSprites(config) {
     this.getComputedSizeFrame();
 
     this.supportedTransform = this.getSupportedProp(['transform', 'webkitTransform']);
-    // После ресайзе окна будем перещитывать размер фрейма
+    // После ресайзе окна будем пересчитывать размер фрейма
     window.onresize = this.getComputedSizeFrame.bind(this);
   };
 
@@ -81,8 +81,8 @@ function createVideoFromSprites(config) {
             if (isImagesLoaded) {
               resolve();
             }
-          }
-        })
+          };
+        });
       }
     });
   };
@@ -163,7 +163,7 @@ function createVideoFromSprites(config) {
   };
 
   /**
-   * Возвращает высоту текущего контеинера
+   * Возвращает ширину текущего контеинера
    * @param width
    * @returns {number}
    */
@@ -231,9 +231,9 @@ function createVideoFromSprites(config) {
     this.videoSpriteContainer.style[this.supportedTransform] = 'translate(-' + coordinateX  + 'px, -' + coordinateY + 'px)';
 
     this.videoImageContainer.style.width = (this.widthVideoContainer * this.countMaxFramesOnRow) + 'px';
-    this.videoImageContainer.style.height= (this.heightVideoContainer * this.countRowFrames) + 'px';
+    this.videoImageContainer.style.height = (this.heightVideoContainer * this.countRowFrames) + 'px';
     this.videoImageContainer.style.visibility = 'visible';
-    this.videoImageContainer.style.maxWidth= 'inherit';
+    this.videoImageContainer.style.maxWidth = 'inherit';
 
     if (!notChangeFrameCount) {
       if (this.currentNumberFrame !== this.countFrames) {
